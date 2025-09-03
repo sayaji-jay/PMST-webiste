@@ -1,49 +1,91 @@
+'use client';
+
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center px-4 py-8 relative">
-      {/* Background Mandala */}
-      <div className="absolute inset-0 flex items-center justify-center z-0">
-        <div className="w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-[500px] lg:h-[500px] opacity-20">
-          <Image
-            src="/mandala.png"
-            alt="Mandala Center"
-            width={500}
-            height={500}
-            className="object-contain animate-spin-slow"
-            priority
-          />
-        </div>
-      </div>
+    <motion.div 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1.2 }}
+      className="min-h-screen flex flex-col items-center justify-center px-4 py-8 relative"
+    >
 
       {/* Side Texts - Desktop */}
-      <div className="hidden lg:flex w-full max-w-8xl justify-between absolute top-1/2 transform -translate-y-1/2 px-8 z-10">
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 1 }}
+        className="hidden lg:flex w-full max-w-8xl justify-between absolute top-1/2 transform -translate-y-1/2 px-8 z-10"
+      >
         {/* Left Side Text */}
-        <div className="w-1/3 flex flex-col items-center justify-center text-center px-4 break-words">
-          <p className="text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold text-orange-900 leading-relaxed hindi-shimmer cursor-default">
+        <motion.div 
+          initial={{ x: -100, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.8, delay: 1.2 }}
+          className="w-1/3 flex flex-col items-center justify-center text-center px-4 break-words"
+        >
+          <motion.p 
+            whileHover={{ scale: 1.05 }}
+            className="text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold text-orange-900 leading-relaxed hindi-shimmer cursor-default"
+          >
             संस्कृति, संस्कार एवं शौर्य का संगम
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
         {/* Right Side Text with Centered ॐ */}
-        <div className="w-1/3 flex flex-col items-center justify-center text-center px-4 break-words">
+        <motion.div 
+          initial={{ x: 100, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.8, delay: 1.2 }}
+          className="w-1/3 flex flex-col items-center justify-center text-center px-4 break-words"
+        >
           {/* Centered ॐ */}
-          <div className="text-orange-600 text-lg md:text-xl lg:text-2xl xl:text-3xl mb-2 hover:text-orange-500 transition-all duration-300 hover:drop-shadow-[0_0_20px_rgba(234,88,12,0.6)] cursor-default">
+          <motion.div 
+            whileHover={{ 
+              scale: 1.2, 
+              textShadow: "0 0 20px rgba(234,88,12,0.8)",
+              color: "#ea580c"
+            }}
+            className="text-orange-600 text-lg md:text-xl lg:text-2xl xl:text-3xl mb-2 transition-all duration-300 cursor-default"
+          >
             ॐ
-          </div>
+          </motion.div>
           {/* Slokas with Same Font */}
-          <div className="text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold text-orange-900 leading-relaxed space-y-2 hindi-shimmer cursor-default text-center">
-            <p>अस्तो मा सद्गमय।</p>
-            <p>तमसो मा ज्योतिर्गमय।</p>
-            <p>मृत्योर्मा अमृतगमय।</p>
-          </div>
-        </div>
-      </div>
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.5 }}
+            className="text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold text-orange-900 leading-relaxed space-y-2 hindi-shimmer cursor-default text-center"
+          >
+            {["अस्तो मा सद्गमय।", "तमसो मा ज्योतिर्गमय।", "मृत्योर्मा अमृतगमय।"].map((sloka, index) => (
+              <motion.p
+                key={index}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 1.7 + index * 0.2 }}
+                whileHover={{ scale: 1.05, color: "#ea580c" }}
+              >
+                {sloka}
+              </motion.p>
+            ))}
+          </motion.div>
+        </motion.div>
+      </motion.div>
 
       {/* Buddha Image */}
-      <div className="flex-shrink-0 z-10 mb-4 sm:mb-6 md:mb-8">
-        <div className="w-48 h-60 sm:w-56 sm:h-72 md:w-64 md:h-80 lg:w-80 lg:h-96 xl:w-96 xl:h-[30rem] relative">
+      <motion.div 
+        initial={{ scale: 0.8, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 1, delay: 0.8 }}
+        className="flex-shrink-0 z-10 mb-4 sm:mb-6 md:mb-8"
+      >
+        <motion.div 
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.3 }}
+          className="w-48 h-60 sm:w-56 sm:h-72 md:w-64 md:h-80 lg:w-80 lg:h-96 xl:w-96 xl:h-[30rem] relative"
+        >
           <Image
             src="/buddha.png"
             alt="Buddha"
@@ -51,18 +93,32 @@ export default function Hero() {
             className="object-contain"
             priority
           />
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
       {/* Bottom Text Section */}
-      <div className="text-center z-10">
-        <h1 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl font-black text-orange-900 drop-shadow-2xl tracking-wider">
+      <motion.div 
+        initial={{ y: 50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8, delay: 1.4 }}
+        className="text-center z-10"
+      >
+        <motion.h1 
+          whileHover={{ scale: 1.02 }}
+          className="text-xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl font-black text-orange-900 drop-shadow-2xl tracking-wider"
+        >
           पूर्वांचल मैत्री समाज ट्रस्ट, गांधीनगर में आपका स्वागत है।
-        </h1>
-        <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-gray-700 drop-shadow-lg">
+        </motion.h1>
+        <motion.p 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 1.8 }}
+          whileHover={{ scale: 1.05 }}
+          className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-gray-700 drop-shadow-lg"
+        >
           Welcome to Purvanchal Maitree Samaj Trust, Gandhinagar (PMST)
-        </p>
-      </div>
-    </div>
+        </motion.p>
+      </motion.div>
+    </motion.div>
   );
 }
