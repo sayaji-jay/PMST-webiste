@@ -1,4 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
+import Image from "next/image";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -20,9 +23,29 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased relative min-h-screen overflow-hidden`}
       >
-        {children}
+        {/* Global Background Image */}
+        <div className="fixed inset-0 z-0">
+          <Image
+            src="/bg.jpg"
+            alt="Background"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+
+        {/* Header */}
+        <Header />
+
+        {/* Main Content */}
+        <main className="relative z-30">
+          {children}
+        </main>
+
+        {/* Footer */}
+        <Footer />
       </body>
     </html>
   );
