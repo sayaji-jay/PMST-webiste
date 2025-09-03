@@ -7,7 +7,7 @@ export default function Hero() {
       <div className="absolute inset-0 z-10 flex items-center justify-center">
         <div className="w-96 h-96 md:w-[500px] md:h-[500px] lg:w-[600px] lg:h-[600px] relative">
           <Image
-            src="/mandala.jpg"
+            src="/mandala.png"
             alt="Mandala"
             width={600}
             height={600}
