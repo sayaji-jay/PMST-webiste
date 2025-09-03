@@ -1,6 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { GraduationCap,PartyPopper,HandHeart ,HandFist} from 'lucide-react';
+
 
 export default function Activities() {
   const activities = [
@@ -8,28 +10,28 @@ export default function Activities() {
       title: "Education Support",
       titleHindi: "शिक्षा सहायता",
       description: "Providing educational resources, scholarships, and learning opportunities for underprivileged students",
-      icon: "📚",
+      icon: GraduationCap,
       color: "from-blue-500 to-blue-600"
     },
     {
       title: "Cultural Celebrations",
       titleHindi: "सांस्कृतिक समारोह",
       description: "Organizing festivals, cultural events, and traditional celebrations to preserve our heritage",
-      icon: "🎭",
+      icon: PartyPopper,
       color: "from-purple-500 to-purple-600"
     },
     {
       title: "Social Welfare",
       titleHindi: "समाज कल्याण",
       description: "Healthcare initiatives, food distribution, and support for elderly and disabled community members",
-      icon: "🤝",
+      icon: HandHeart,
       color: "from-green-500 to-green-600"
     },
     {
       title: "Empowerment Programs",
       titleHindi: "सशक्तिकरण कार्यक्रम",
       description: "Skill development, entrepreneurship training, and women empowerment initiatives",
-      icon: "💪",
+      icon: HandFist,
       color: "from-orange-500 to-orange-600"
     }
   ];
@@ -71,7 +73,9 @@ export default function Activities() {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
-          {activities.map((activity, index) => (
+          {activities.map((activity, index) => {
+            const Icon = activity.icon;
+            return (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 50, scale: 0.9 }}
@@ -96,7 +100,7 @@ export default function Activities() {
                   transition={{ duration: 0.5 }}
                   className={`w-16 h-16 bg-gradient-to-br ${activity.color} rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-lg relative z-10`}
                 >
-                  {activity.icon}
+                  <Icon size={32} className="text-white" />
                 </motion.div>
 
                 {/* Content */}
@@ -128,7 +132,9 @@ export default function Activities() {
                 ></motion.div>
               </div>
             </motion.div>
-          ))}
+            )}
+          )
+        }
         </div>
 
         {/* Call to Action */}

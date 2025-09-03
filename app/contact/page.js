@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useState } from 'react';
-
+import { Facebook,Instagram,PhoneCall,MapPin,Mail } from 'lucide-react';
 export default function Contact() {
   const [formData, setFormData] = useState({
     mobile: '',
@@ -29,21 +29,18 @@ export default function Contact() {
   const socialLinks = [
     {
       name: 'Facebook',
-      icon: '📘',
+      icon: Facebook,
       url: 'https://facebook.com',
-      color: 'from-blue-600 to-blue-700'
     },
     {
       name: 'Instagram',
-      icon: '📷',
+      icon: Instagram,
       url: 'https://instagram.com',
-      color: 'from-pink-500 to-purple-600'
     },
     {
       name: 'WhatsApp',
-      icon: '📱',
+      icon: PhoneCall,
       url: 'https://whatsapp.com',
-      color: 'from-green-500 to-green-600'
     }
   ];
 
@@ -209,7 +206,9 @@ export default function Contact() {
               <h3 className="text-2xl font-bold text-orange-900 mb-6">हमसे जुड़ें / Follow Us</h3>
               
               <div className="space-y-4">
-                {socialLinks.map((social, index) => (
+                {socialLinks.map((social, index) => {
+                  const Icon = social.icon;
+                  return (
                   <motion.a
                     key={social.name}
                     href={social.url}
@@ -219,15 +218,16 @@ export default function Contact() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
                     whileHover={{ scale: 1.05, x: 10 }}
-                    className={`flex items-center p-4 bg-gradient-to-r ${social.color} text-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300`}
+                    className={`flex items-center p-4 bg-gradient-to-r bg-yellow-950 text-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300`}
                   >
-                    <span className="text-2xl mr-4">{social.icon}</span>
+                    <span className="text-2xl mr-4"><Icon/></span>
                     <div>
                       <span className="font-semibold text-lg">{social.name}</span>
                       <p className="text-sm opacity-90">हमारे {social.name} पेज पर जाएं</p>
                     </div>
                   </motion.a>
-                ))}
+                  )}
+                )}
               </div>
             </motion.div>
 
@@ -243,11 +243,11 @@ export default function Contact() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.9 }}
-                  className="flex items-center p-4 bg-white/20 rounded-xl"
+                  className="flex items-center p-4 rounded-xl text-orange-900"
                 >
-                  <span className="text-2xl mr-4">📍</span>
+                  <span className="text-2xl mr-4"><MapPin/></span>
                   <div>
-                    <h4 className="font-semibold text-orange-900">पता / Address</h4>
+                    <h4 className="font-semibold">पता / Address</h4>
                     <p className="text-gray-700">गांधीनगर, गुजरात</p>
                   </div>
                 </motion.div>
@@ -256,11 +256,11 @@ export default function Contact() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 1.0 }}
-                  className="flex items-center p-4 bg-white/20 rounded-xl"
+                  className="flex items-center p-4 rounded-xl text-orange-900"
                 >
-                  <span className="text-2xl mr-4">📞</span>
+                  <span className="text-2xl mr-4"><PhoneCall/></span>
                   <div>
-                    <h4 className="font-semibold text-orange-900">फोन / Phone</h4>
+                    <h4 className="font-semibold">फोन / Phone</h4>
                     <p className="text-gray-700">+91 XXXXX XXXXX</p>
                   </div>
                 </motion.div>
@@ -269,11 +269,11 @@ export default function Contact() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 1.1 }}
-                  className="flex items-center p-4 bg-white/20 rounded-xl"
+                  className="flex items-center p-4 rounded-xl text-orange-900"
                 >
-                  <span className="text-2xl mr-4">✉️</span>
+                  <span className="text-2xl mr-4"><Mail/></span>
                   <div>
-                    <h4 className="font-semibold text-orange-900">ईमेल / Email</h4>
+                    <h4 className="font-semibold ">ईमेल / Email</h4>
                     <p className="text-gray-700">info@pmst.org</p>
                   </div>
                 </motion.div>

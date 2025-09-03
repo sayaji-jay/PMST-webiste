@@ -4,9 +4,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const router = useRouter();
+  const pathname = usePathname();
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
@@ -19,9 +22,22 @@ export default function Header() {
     setIsMenuOpen(false);
   };
 
+  const handleNavClick = async (sectionId) => {
+    if (pathname !== "/") {
+      // Navigate to home first
+      await router.push("/");
+      // Add a small delay to ensure DOM is ready
+      setTimeout(() => scrollToSection(sectionId), 300);
+    } else {
+      // If already on home, just scroll
+      scrollToSection(sectionId);
+    }
+  };
+
   const navItems = [
     { name: 'Home', id: 'home' },
     { name: 'About', id: 'about' },
+    { name: 'Members', id: 'members' },
     { name: 'Mission', id: 'mission' },
     { name: 'Activities', id: 'activities' }
   ];
@@ -38,7 +54,7 @@ export default function Header() {
           <motion.div 
             whileHover={{ scale: 1.05 }}
             className="flex items-center cursor-pointer"
-            onClick={() => scrollToSection('home')}
+            onClick={() => handleNavClick('home')}
           >
             <div className="w-15 h-15 rounded-full overflow-hidden bg-white/20 backdrop-blur-sm border border-white/30 p-1">
               <Image 
@@ -57,7 +73,7 @@ export default function Header() {
             {navItems.map((item, index) => (
               <motion.button 
                 key={item.id}
-                onClick={() => scrollToSection(item.id)}
+                onClick={() => handleNavClick(item.id)}
                 initial={{ y: -20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: index * 0.1, duration: 0.5 }}
@@ -68,7 +84,7 @@ export default function Header() {
               </motion.button>
             ))}
             
-            {/* Contact Link - Goes to separate page */}
+            {/* Contact Link */}
             <Link href="/contact">
               <motion.button 
                 initial={{ y: -20, opacity: 0 }}
@@ -107,7 +123,7 @@ export default function Header() {
             {navItems.map((item, index) => (
               <motion.button
                 key={item.id}
-                onClick={() => scrollToSection(item.id)}
+                onClick={() => handleNavClick(item.id)}
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: index * 0.1 }}

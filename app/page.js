@@ -3,7 +3,7 @@ import MissionVision from "./components/MissionVision";
 import ShortHistory from "./components/ShortHistory";
 import Activities from "./components/Activities";
 import AnimatedMandala from "./components/AnimatedMandala";
-
+import Members from "./components/Members";
 export default function Home() {
   return (
     <div className="relative">
@@ -18,6 +18,12 @@ export default function Home() {
       {/* About Section (History) */}
       <section id="about" className="relative z-20 min-h-screen bg-white/5 backdrop-blur-sm pt-20">
         <ShortHistory />
+      </section>
+
+
+      {/* Mission & Vision Section */}
+      <section id="mission" className="relative z-20 min-h-screen bg-white/3 backdrop-blur-sm pt-20">
+        <Members />
       </section>
       
       {/* Mission & Vision Section */}
