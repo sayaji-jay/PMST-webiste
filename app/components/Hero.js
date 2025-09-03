@@ -3,15 +3,43 @@ import Image from "next/image";
 export default function Hero() {
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Mandala at the bottom */}
+      {/* Center Mandala behind Buddha */}
       <div className="absolute inset-0 z-10 flex items-center justify-center">
-        <div className="w-96 h-96 md:w-[500px] md:h-[500px] lg:w-[600px] lg:h-[600px] relative">
+        <div className="w-96 h-96 md:w-[500px] md:h-[500px] lg:w-[600px] lg:h-[600px] relative opacity-30">
           <Image
             src="/mandala.png"
-            alt="Mandala"
+            alt="Mandala Center"
             width={600}
             height={600}
-            className="animate-spin-slow opacity-40 mix-blend-screen object-contain"
+            className="object-contain animate-spin-slow"
+            priority
+          />
+        </div>
+      </div>
+
+      {/* Left Side Background Image */}
+      <div className="absolute left-0 top-0 z-0 opacity-20">
+        <div className="w-[300px] h-[400px] md:w-[400px] md:h-[500px] lg:w-[500px] lg:h-[600px] relative">
+          <Image
+            src="/bg-oneside.png"
+            alt="Left Side BG"
+            width={400}
+            height={600}
+            className="object-contain"
+            priority
+          />
+        </div>
+      </div>
+
+      {/* Right Side Background Image - Mirrored */}
+      <div className="absolute right-0 top-0 z-0 opacity-20">
+        <div className="w-[300px] h-[400px] md:w-[400px] md:h-[500px] lg:w-[500px] lg:h-[600px] relative scale-x-[-1]">
+          <Image
+            src="/bg-oneside.png"
+            alt="Right Side BG"
+            width={400}
+            height={600}
+            className="object-contain"
             priority
           />
         </div>
@@ -25,7 +53,7 @@ export default function Hero() {
             alt="Buddha"
             width={450}
             height={600}
-            className="object-contain "
+            className="object-contain"
             priority
           />
         </div>
