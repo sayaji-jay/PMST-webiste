@@ -107,7 +107,7 @@ export default function MissionVision() {
               whileInView={{ opacity: 1 }}
               transition={{ duration: 1, delay: 0.6 }}
             >
-              "A society that thrives on cultural values, innovation, and collective growth."
+              A society that thrives on cultural values, innovation, and collective growth
             </motion.p>
             <motion.div 
               initial={{ width: 0 }}
