@@ -42,7 +42,7 @@ export default function MissionVision() {
             </motion.h3>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {missions.map((mission, index) => (
               <motion.div
                 key={index}
@@ -50,22 +50,19 @@ export default function MissionVision() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
                 whileHover={{ 
-                  scale: 1.05,
-                  boxShadow: "0 20px 40px rgba(234, 88, 12, 0.2)"
+                  scale: 1.02
                 }}
-                className="bg-white/10 backdrop-blur-sm border border-orange-200/30 rounded-2xl p-6 hover:bg-white/20 transition-all duration-300"
+                className="bg-white/10 backdrop-blur-sm border border-orange-200/30 rounded-xl p-4 md:p-5 hover:bg-white/20 transition-all duration-300"
               >
                 <div className="flex items-center mb-4">
                   <motion.div 
-                    whileHover={{ rotate: 360 }}
-                    transition={{ duration: 0.5 }}
-                    className="w-12 h-12 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full flex items-center justify-center mr-4"
+                    className="w-10 h-10 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full flex items-center justify-center mr-3"
                   >
-                    <span className="text-white font-bold text-xl">✦</span>
+                    <span className="text-white font-bold text-lg">✦</span>
                   </motion.div>
                   <div className="h-1 flex-1 bg-gradient-to-r from-orange-500 to-transparent rounded"></div>
                 </div>
-                <p className="text-gray-800 font-medium text-lg leading-relaxed">
+                <p className="text-gray-800 font-medium text-sm md:text-base leading-relaxed">
                   {mission}
                 </p>
               </motion.div>
@@ -102,11 +99,10 @@ export default function MissionVision() {
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            whileHover={{ scale: 1.02 }}
-            className="max-w-4xl mx-auto bg-gradient-to-br from-orange-50/50 to-white/30 backdrop-blur-sm border border-orange-200/50 rounded-3xl p-8 md:p-12 shadow-2xl"
+            className="max-w-3xl mx-auto bg-gradient-to-br from-orange-50/50 to-white/30 backdrop-blur-sm border border-orange-200/50 rounded-2xl p-6 md:p-8 shadow-lg"
           >
             <motion.p 
-              className="text-xl md:text-2xl lg:text-3xl font-semibold text-gray-800 leading-relaxed"
+              className="text-lg md:text-xl lg:text-2xl font-semibold text-gray-800 leading-relaxed"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 1, delay: 0.6 }}

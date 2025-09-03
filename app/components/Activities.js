@@ -139,7 +139,8 @@ export default function Activities() {
           viewport={{ once: true }}
           className="text-center mt-16"
         >
-          <motion.div
+          <motion.a
+            href="/contact"
             whileHover={{ scale: 1.05 }}
             className="inline-block bg-gradient-to-r from-orange-500 to-orange-600 text-white font-bold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer"
           >
@@ -149,7 +150,7 @@ export default function Activities() {
             >
               हमसे जुड़ें • Join Us
             </motion.span>
-          </motion.div>
+          </motion.a>
         </motion.div>
       </div>
     </section>

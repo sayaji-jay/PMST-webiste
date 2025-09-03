@@ -35,7 +35,6 @@ export default function AnimatedMandala() {
             alt="Animated Mandala"
             fill
             className="object-contain"
-            priority
           />
         </div>
       </motion.div>
