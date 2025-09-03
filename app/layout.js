@@ -36,11 +36,36 @@ export default function RootLayout({ children }) {
           />
         </div>
 
+        {/* Side Background Images */}
+        <div className="fixed inset-0 z-10 pointer-events-none">
+          {/* Left Side Image */}
+          <div className="absolute left-0 top-1/2 transform -translate-y-1/2 w-24 h-32 sm:w-32 sm:h-48 md:w-48 md:h-64 lg:w-64 lg:h-80 xl:w-80 xl:h-96 opacity-40">
+            <Image
+              src="/bg-oneside.png"
+              alt="Left Side BG"
+              fill
+              className="object-contain"
+              priority
+            />
+          </div>
+
+          {/* Right Side Image */}
+          <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-24 h-32 sm:w-32 sm:h-48 md:w-48 md:h-64 lg:w-64 lg:h-80 xl:w-80 xl:h-96 scale-x-[-1] opacity-40">
+            <Image
+              src="/bg-oneside.png"
+              alt="Right Side BG"
+              fill
+              className="object-contain"
+              priority
+            />
+          </div>
+        </div>
+
         {/* Header */}
         <Header />
 
         {/* Main Content */}
-        <main className="relative z-30">
+        <main className="relative z-20">
           {children}
         </main>
 
