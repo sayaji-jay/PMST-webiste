@@ -38,24 +38,24 @@ export default function RootLayout({ children }) {
 
         {/* Side Background Images */}
         <div className="fixed inset-0 z-10 pointer-events-none">
-          {/* Left Side Image */}
-          <div className="absolute left-0 top-1/2 transform -translate-y-1/2 w-24 h-32 sm:w-32 sm:h-48 md:w-48 md:h-64 lg:w-64 lg:h-80 xl:w-80 xl:h-96 opacity-40">
+          {/* Left Side Image - Full image without cropping */}
+          <div className="absolute left-0 top-1/2 transform -translate-y-1/2 w-20 h-screen/4 sm:w-24 sm:h-screen/3 md:w-32 md:h-screen/2 lg:w-40 lg:h-3/5 xl:w-48 xl:h-4/5 opacity-40 -ml-1">
             <Image
               src="/bg-oneside.png"
               alt="Left Side BG"
               fill
-              className="object-contain"
+              className="object-contain object-left"
               priority
             />
           </div>
 
-          {/* Right Side Image */}
-          <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-24 h-32 sm:w-32 sm:h-48 md:w-48 md:h-64 lg:w-64 lg:h-80 xl:w-80 xl:h-96 scale-x-[-1] opacity-40">
+          {/* Right Side Image - Full image without cropping */}
+          <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-20 h-screen/4 sm:w-24 sm:h-screen/3 md:w-32 md:h-screen/2 lg:w-40 lg:h-3/5 xl:w-48 xl:h-4/5 scale-x-[-1] opacity-40 -mr-1">
             <Image
               src="/bg-oneside.png"
               alt="Right Side BG"
               fill
-              className="object-contain"
+              className="object-contain object-right"
               priority
             />
           </div>

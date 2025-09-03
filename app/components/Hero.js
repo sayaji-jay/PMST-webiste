@@ -17,24 +17,27 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Top Text Section */}
-      <div className="text-center mb-4 sm:mb-6 md:mb-8 z-10">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-gray-800 drop-shadow-2xl tracking-wider">
-          WELCOME
-        </h1>
-      </div>
-
       {/* Side Texts - Desktop */}
-      <div className="hidden lg:flex w-full max-w-6xl justify-between items-center absolute top-1/2 transform -translate-y-1/2 px-8 z-10">
-        <div className="text-gray-600 font-semibold text-xl xl:text-2xl drop-shadow-md">
-          <p className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg">
-            Inner Peace
+      <div className="hidden lg:flex w-full max-w-8xl justify-between absolute top-1/2 transform -translate-y-1/2 px-8 z-10">
+        {/* Left Side Text */}
+        <div className="w-1/3 flex flex-col items-center justify-center text-center px-4 break-words">
+          <p className="text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold text-orange-900 leading-relaxed hindi-shimmer cursor-default">
+            संस्कृति, संस्कार एवं शौर्य का संगम
           </p>
         </div>
-        <div className="text-gray-600 font-semibold text-xl xl:text-2xl drop-shadow-md">
-          <p className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg">
-            Mindfulness
-          </p>
+
+        {/* Right Side Text with Centered ॐ */}
+        <div className="w-1/3 flex flex-col items-center justify-center text-center px-4 break-words">
+          {/* Centered ॐ */}
+          <div className="text-orange-600 text-lg md:text-xl lg:text-2xl xl:text-3xl mb-2 hover:text-orange-500 transition-all duration-300 hover:drop-shadow-[0_0_20px_rgba(234,88,12,0.6)] cursor-default">
+            ॐ
+          </div>
+          {/* Slokas with Same Font */}
+          <div className="text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold text-orange-900 leading-relaxed space-y-2 hindi-shimmer cursor-default text-center">
+            <p>अस्तो मा सद्गमय।</p>
+            <p>तमसो मा ज्योतिर्गमय।</p>
+            <p>मृत्योर्मा अमृतगमय।</p>
+          </div>
         </div>
       </div>
 
@@ -53,23 +56,12 @@ export default function Hero() {
 
       {/* Bottom Text Section */}
       <div className="text-center z-10">
-        <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-gray-700 drop-shadow-lg">
-          Peace and Tranquility
+        <h1 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl font-black text-orange-900 drop-shadow-2xl tracking-wider">
+          पूर्वांचल मैत्री समाज ट्रस्ट, गांधीनगर में आपका स्वागत है।
+        </h1>
+        <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-gray-700 drop-shadow-lg">
+          Welcome to Purvanchal Maitree Samaj Trust, Gandhinagar (PMST)
         </p>
-      </div>
-
-      {/* Mobile Side Texts */}
-      <div className="flex lg:hidden justify-between w-full max-w-md mt-6 z-10">
-        <div className="text-gray-600 font-semibold text-sm sm:text-base drop-shadow-md">
-          <p className="bg-white/20 backdrop-blur-sm px-3 py-1 rounded">
-            Inner Peace
-          </p>
-        </div>
-        <div className="text-gray-600 font-semibold text-sm sm:text-base drop-shadow-md">
-          <p className="bg-white/20 backdrop-blur-sm px-3 py-1 rounded">
-            Mindfulness
-          </p>
-        </div>
       </div>
     </div>
   );
