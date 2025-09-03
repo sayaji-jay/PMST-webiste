@@ -40,12 +40,12 @@ export default function Header() {
             className="flex items-center cursor-pointer"
             onClick={() => scrollToSection('home')}
           >
-            <div className="w-12 h-12 rounded-full overflow-hidden bg-white/20 backdrop-blur-sm border border-white/30 p-1">
+            <div className="w-15 h-15 rounded-full overflow-hidden bg-white/20 backdrop-blur-sm border border-white/30 p-1">
               <Image 
                 src="/LogoP.jpeg" 
                 alt="Logo" 
-                width={50} 
-                height={50} 
+                width={56} 
+                height={56} 
                 className="w-full h-full object-contain rounded-full" 
               />
             </div>
