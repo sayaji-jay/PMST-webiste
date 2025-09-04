@@ -16,7 +16,7 @@ export default function AnimatedMandala() {
     <>
       {/* Main Mandala - Continuously spinning, fades to half opacity during scroll */}
       <motion.div
-        className="fixed left-1/2 top-1/3 sm:top-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none z-5"
+        className="fixed left-1/2 top-1/2 sm:top-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none z-5"
         style={{
           y,
           opacity,
@@ -29,7 +29,7 @@ export default function AnimatedMandala() {
           ease: "linear"
         }}
       >
-        <div className="w-[400px] h-[400px] sm:w-[450px] sm:h-[450px] md:w-[550px] md:h-[550px] relative">
+        <div className="w-[300px] h-[300px] sm:w-[450px] sm:h-[450px] md:w-[550px] md:h-[550px] relative">
           <Image
             src="/mandala.png"
             alt="Animated Mandala"

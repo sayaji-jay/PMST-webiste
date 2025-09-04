@@ -69,12 +69,12 @@ export default function Hero() {
         initial={{ scale: 0.8, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 1, delay: 0.8 }}
-        className="flex-shrink-0 z-10 mb-2 sm:mb-4 md:mb-6 -mt-8 sm:-mt-0"
+        className="flex-shrink-0 z-10 mb-2 sm:mb-4 md:mb-6 -mt-16 sm:-mt-0"
       >
         <motion.div 
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.3 }}
-          className="w-40 h-52 sm:w-48 sm:h-60 md:w-56 md:h-72 lg:w-72 lg:h-88 xl:w-80 xl:h-96 relative"
+          className="w-70 h-90  xl:w-80 xl:h-96 relative"
         >
           <Image
             src="/buddha.png"
