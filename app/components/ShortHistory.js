@@ -109,9 +109,9 @@ export default function ShortHistory() {
 
                 {/* Timeline Items */}
                 {[
-                  { year: "स्थापना", title: "ट्रस्ट की नींव", desc: "समाज सेवा का आरंभ" },
-                  { year: "विस्तार", title: "कार्यक्रमों का विकास", desc: "शिक्षा और स्वास्थ्य सेवाएं" },
-                  { year: "वर्तमान", title: "निरंतर सेवा", desc: "समुदाय का कल्याण" },
+                  { year: "स्थापना", title: "ट्रस्ट की नींव", desc: "समाज सेवा का आरंभ", date: "7 सितम्बर 2012" },
+                  { year: "विस्तार", title: "कार्यक्रमों का विकास", desc: "शिक्षा और स्वास्थ्य सेवाएं", date: "मार्च 2015" },
+                  { year: "वर्तमान", title: "निरंतर सेवा", desc: "समुदाय का कल्याण", date: "2024 तक" },
                 ].map((item, index) => (
                   <motion.div
                     key={index}
@@ -129,11 +129,24 @@ export default function ShortHistory() {
                     </motion.div>
                     <motion.div 
                       whileHover={{ scale: 1.05 }}
-                      className="ml-6 bg-white/15 backdrop-blur-sm border border-orange-200/30 rounded-xl p-4 flex-1"
+                      className="ml-6 bg-white/15 backdrop-blur-sm border border-orange-200/30 rounded-xl p-4 flex-1 relative overflow-hidden"
                     >
-                      <h5 className="font-bold text-orange-900 text-lg mb-1">{item.year}</h5>
-                      <h6 className="font-semibold text-gray-800 mb-2">{item.title}</h6>
-                      <p className="text-gray-700 text-sm">{item.desc}</p>
+                      {/* Large Date on Right Side */}
+                      <motion.div 
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        whileInView={{ opacity: 0.15, scale: 1 }}
+                        transition={{ duration: 0.6, delay: 0.3 }}
+                        className="absolute right-2 top-1/2 transform -translate-y-1/2 text-2xl md:text-3xl font-black text-orange-900 whitespace-nowrap pointer-events-none"
+                      >
+                        {item.date}
+                      </motion.div>
+                      
+                      {/* Content */}
+                      <div className="relative z-10">
+                        <h5 className="font-bold text-orange-900 text-lg mb-1">{item.year}</h5>
+                        <h6 className="font-semibold text-gray-800 mb-2">{item.title}</h6>
+                        <p className="text-gray-700 text-sm">{item.desc}</p>
+                      </div>
                     </motion.div>
                   </motion.div>
                 ))}

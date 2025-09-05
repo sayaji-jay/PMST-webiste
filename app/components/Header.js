@@ -37,7 +37,7 @@ export default function Header() {
   const navItems = [
     { name: 'Home', id: 'home' },
     { name: 'About', id: 'about' },
-    { name: 'Leaders Teams', id: 'members' },
+    { name: 'Members', id: 'members' },
     { name: 'Mission', id: 'mission' },
     { name: 'Activities', id: 'activities' }
   ];

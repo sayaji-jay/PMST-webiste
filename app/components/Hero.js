@@ -142,7 +142,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 2.4 }}
-          className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl font-bold text-gray-700 drop-shadow-lg mt-2"
+          className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-2xl font-bold text-gray-700 drop-shadow-lg mt-2"
         >
           Welcome to Purvanchal Maitree Samaj Trust, Gandhinagar (PMST)
         </motion.p>

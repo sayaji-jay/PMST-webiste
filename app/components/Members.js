@@ -4,9 +4,20 @@ import { motion } from 'framer-motion';
 import { Phone, User } from 'lucide-react';
 
 export default function Members() {
+  // const members = [
+  //   {
+  //     name: "प्रवीन कुमार श्रीवास्तव",
+  //     nameEnglish: "Pravin Kumar Shrivastava",
+  //     position: "President",
+  //     positionHindi: "अध्यक्ष",
+  //     mobile: "+91 98765 43210",
+  //     image: "/members/Pravin Kumar Shrivastava.jpeg"
+  //   }
+  // ];
+
   const members = [
     {
-      name: "प्रवीन कुमार श्रीवास्तव",
+      name: "प्रवीण कुमार श्रीवास्तव",
       nameEnglish: "Pravin Kumar Shrivastava",
       position: "President",
       positionHindi: "अध्यक्ष",
@@ -142,6 +153,49 @@ export default function Members() {
               </div>
             </motion.div>
           ))}
+          
+          {/* Coming Soon Members Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 50, scale: 0.9 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.6, delay: members.length * 0.1 + 0.2 }}
+            className="w-full max-w-xs"
+          >
+            <div className="bg-white/10 backdrop-blur-sm border border-orange-200/30 rounded-3xl p-8 hover:bg-white/20 transition-all duration-300 text-center">
+              <motion.div
+                initial={{ scale: 0.8 }}
+                whileInView={{ scale: 1 }}
+                transition={{ duration: 0.5 }}
+                className="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-lg mx-auto"
+              >
+                <User size={32} className="text-white" />
+              </motion.div>
+              <motion.h4 
+                className="text-xl font-bold text-orange-900 mb-2"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ delay: 0.2 }}
+              >
+                जल्द ही आ रहे हैं
+              </motion.h4>
+              <motion.h5 
+                className="text-lg font-semibold text-orange-700 mb-4"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ delay: 0.3 }}
+              >
+                Coming Soon Members
+              </motion.h5>
+              <motion.p 
+                className="text-gray-700 leading-relaxed text-sm"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ delay: 0.4 }}
+              >
+                हमारे अधिक समर्पित सदस्यों की जानकारी जल्द ही यहाँ उपलब्ध होगी। कृपया बाद में पुनः विजिट करें।
+              </motion.p>
+            </div>
+          </motion.div>
         </div>
 
         {/* Call to Action */}
