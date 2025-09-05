@@ -3,13 +3,25 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [bannerVisible, setBannerVisible] = useState(true);
   const router = useRouter();
   const pathname = usePathname();
+
+  useEffect(() => {
+    const handleBannerLoaded = (event) => {
+      setBannerVisible(event.detail.isVisible);
+    };
+
+    window.addEventListener('bannerLoaded', handleBannerLoaded);
+    return () => {
+      window.removeEventListener('bannerLoaded', handleBannerLoaded);
+    };
+  }, []);
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
@@ -45,9 +57,16 @@ export default function Header() {
   return (
     <motion.header 
       initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
+      animate={{ 
+        y: 0, 
+        opacity: 1
+      }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className="fixed top-[65px] md:top-[60px] left-0 right-0 z-50 bg-white/10 backdrop-blur-md border-b border-white/20"
+      className={`fixed left-0 right-0 z-50 bg-white/10 backdrop-blur-md border-b border-white/20 ${
+        bannerVisible 
+          ? 'top-[65px] md:top-[60px]' 
+          : 'top-0'
+      }`}
     >
       <div className="container mx-auto px-4 py-4">
         <nav className="flex justify-between items-center">
@@ -65,7 +84,10 @@ export default function Header() {
                 className="w-full h-full object-contain rounded-full" 
               />
             </div>
-            <span className="ml-3 text-orange-900 font-bold text-lg">PMST</span>
+            <span className="ml-3 text-orange-900 font-bold text-lg">
+              <span className="block md:hidden">PMST, Gandhinagar</span>
+              <span className="hidden md:block">Purvanchal Maitree Samaj Trust, Gandhinagar</span>
+            </span>
           </motion.div>
           
           {/* Desktop Navigation */}

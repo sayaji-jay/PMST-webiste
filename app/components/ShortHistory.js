@@ -116,8 +116,8 @@ export default function ShortHistory() {
                 {/* Timeline Items */}
                 {[
                   { year: "स्थापना", title: "ट्रस्ट की नींव", desc: "समाज सेवा का आरंभ", date: "7 सितम्बर 2012" },
-                  { year: "विस्तार", title: "कार्यक्रमों का विकास", desc: "शिक्षा और स्वास्थ्य सेवाएं", date: "मार्च 2015" },
-                  { year: "वर्तमान", title: "निरंतर सेवा", desc: "समुदाय का कल्याण", date: "2024 तक" },
+                  { year: "विस्तार", title: "कार्यक्रमों का विकास", desc: "शिक्षा और स्वास्थ्य सेवाएं", date: "" },
+                  { year: "वर्तमान", title: "निरंतर सेवा", desc: "समुदाय का कल्याण", date: "" },
                 ].map((item, index) => (
                   <motion.div
                     key={index}
@@ -140,7 +140,7 @@ export default function ShortHistory() {
                       {/* Large Date on Right Side */}
                       <motion.div 
                         initial={{ opacity: 0, scale: 0.8 }}
-                        whileInView={{ opacity: 0.4, scale: 1 }}
+                        whileInView={{ opacity: 0.8, scale: 1 }}
                         transition={{ duration: 0.6, delay: 0.3 }}
                         className="absolute right-2 top-1/2 transform -translate-y-1/2 text-2xl md:text-3xl font-black text-orange-900 whitespace-nowrap pointer-events-none"
                       >

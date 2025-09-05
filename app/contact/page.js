@@ -28,19 +28,14 @@ export default function Contact() {
 
   const socialLinks = [
     {
-      name: 'Facebook',
-      icon: Facebook,
-      url: 'https://facebook.com',
-    },
-    {
       name: 'Instagram',
       icon: Instagram,
-      url: 'https://instagram.com',
+      url: 'https://instagram.com/pmstgnr/',
     },
     {
       name: 'WhatsApp',
       icon: PhoneCall,
-      url: 'https://whatsapp.com',
+      url: 'https://wa.me/+919724500254',
     }
   ];
 
@@ -261,7 +256,7 @@ export default function Contact() {
                   <span className="text-2xl mr-4"><PhoneCall/></span>
                   <div>
                     <h4 className="font-semibold">फोन / Phone</h4>
-                    <p className="text-gray-700">+91 XXXXX XXXXX</p>
+                    <p className="text-gray-700">+91 97245 00254</p>
                   </div>
                 </motion.div>
 
@@ -274,7 +269,7 @@ export default function Contact() {
                   <span className="text-2xl mr-4"><Mail/></span>
                   <div>
                     <h4 className="font-semibold ">ईमेल / Email</h4>
-                    <p className="text-gray-700">info@pmst.org</p>
+                    <p className="text-gray-700">pmstgnr@gmail.com</p>
                   </div>
                 </motion.div>
               </div>

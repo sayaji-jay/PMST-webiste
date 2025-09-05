@@ -1,3 +1,5 @@
+'use client';
+
 import Hero from "./components/Hero";
 import MissionVision from "./components/MissionVision";
 import ShortHistory from "./components/ShortHistory";
@@ -5,7 +7,10 @@ import Activities from "./components/Activities";
 import AnimatedMandala from "./components/AnimatedMandala";
 import AnimatedTree from "./components/AnimatedTree";
 import Members from "./components/Members";
+import { useBannerVisibility } from "./hooks/useBannerVisibility";
 export default function Home() {
+  const bannerVisible = useBannerVisibility();
+  
   return (
     <div className="relative">
       {/* Animated Mandala Background */}
@@ -13,7 +18,14 @@ export default function Home() {
       <AnimatedTree />
       
       {/* Hero Section */}
-      <section id="home" className="relative z-20 min-h-screen pt-36 md:pt-36 pb-4 md:pb-20">
+      <section 
+        id="home" 
+        className={`relative z-20 min-h-screen pb-4 md:pb-20 ${
+          bannerVisible 
+            ? 'pt-36 md:pt-36' 
+            : 'pt-20 md:pt-24'
+        }`}
+      >
         <Hero />
       </section>
       

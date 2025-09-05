@@ -2,8 +2,44 @@
 
 import { motion } from 'framer-motion';
 import { Calendar, MapPin } from 'lucide-react';
+import { useState, useEffect } from 'react';
 
 export default function TopBanner() {
+  const [bannerData, setBannerData] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchBannerData = async () => {
+      try {
+        const response = await fetch('/api/banner');
+        const data = await response.json();
+        setBannerData(data);
+      } catch (error) {
+        console.error('Failed to fetch banner data:', error);
+        setBannerData({ isVisible: false, text: "" });
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchBannerData();
+  }, []);
+
+  // Dispatch event when banner data changes
+  useEffect(() => {
+    if (!loading) {
+      const isVisible = bannerData?.isVisible && bannerData?.text;
+      window.dispatchEvent(new CustomEvent('bannerLoaded', { 
+        detail: { isVisible: Boolean(isVisible) } 
+      }));
+    }
+  }, [loading, bannerData]);
+
+  // Don't render anything while loading or if banner should not be visible
+  if (loading || !bannerData?.isVisible || !bannerData?.text) {
+    return null;
+  }
+
   return (
     <motion.div
       initial={{ y: -100, opacity: 0 }}
@@ -19,13 +55,18 @@ export default function TopBanner() {
           transition={{ delay: 0.2, duration: 0.3 }}
           className="flex items-center justify-center gap-6 text-center flex-wrap"
         >
-          {/* Date */}
+          {/* Banner Text */}
           <div className="flex items-center gap-2">
+            <motion.div
+              animate={{ rotate: [0, 10, -10, 0] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <Calendar size={18} className="text-orange-100" />
+            </motion.div>
             <span className="font-bold text-sm md:text-lg bg-white/20 px-3 py-1 rounded-full">
-              Website Launch - 12th Sep 2025  
+              {bannerData.text}
             </span>
           </div>
-
         </motion.div>
       </div>
 
