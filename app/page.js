@@ -13,12 +13,12 @@ export default function Home() {
       <AnimatedTree />
       
       {/* Hero Section */}
-      <section id="home" className="relative z-20 min-h-screen pt-20 pb-20">
+      <section id="home" className="relative z-20 min-h-screen pt-36 md:pt-36 pb-4 md:pb-20">
         <Hero />
       </section>
       
       {/* About Section (History) */}
-      <section id="about" className="relative z-20 min-h-screen pt-20">
+      <section id="about" className="relative z-20 min-h-screen pt-4 md:pt-20">
         <ShortHistory />
       </section>
 

@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Image from "next/image";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import TopBanner from "./components/TopBanner";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -61,6 +62,9 @@ export default function RootLayout({ children }) {
           </div>
         </div>
 
+        {/* Top Banner Notification */}
+        <TopBanner />
+        
         {/* Header */}
         <Header />
 

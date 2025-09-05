@@ -47,7 +47,10 @@ export default function ShortHistory() {
               className="space-y-6"
             >
               <motion.div
-                whileHover={{ scale: 1.02 }}
+                initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                whileHover={{ scale: 1.02, backgroundColor: "rgba(255, 255, 255, 0.15)" }}
+                transition={{ duration: 0.6, delay: 0.3 }}
                 className="bg-white/10 backdrop-blur-sm border border-orange-200/30 rounded-2xl p-6"
               >
                 <motion.h4 
@@ -69,7 +72,10 @@ export default function ShortHistory() {
               </motion.div>
 
               <motion.div
-                whileHover={{ scale: 1.02 }}
+                initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                whileHover={{ scale: 1.02, backgroundColor: "rgba(255, 255, 255, 0.15)" }}
+                transition={{ duration: 0.6, delay: 0.5 }}
                 className="bg-white/10 backdrop-blur-sm border border-orange-200/30 rounded-2xl p-6"
               >
                 <motion.h4 
@@ -134,7 +140,7 @@ export default function ShortHistory() {
                       {/* Large Date on Right Side */}
                       <motion.div 
                         initial={{ opacity: 0, scale: 0.8 }}
-                        whileInView={{ opacity: 0.15, scale: 1 }}
+                        whileInView={{ opacity: 0.4, scale: 1 }}
                         transition={{ duration: 0.6, delay: 0.3 }}
                         className="absolute right-2 top-1/2 transform -translate-y-1/2 text-2xl md:text-3xl font-black text-orange-900 whitespace-nowrap pointer-events-none"
                       >
