@@ -12,6 +12,29 @@ export default function Hero() {
       className="min-h-screen flex flex-col items-center justify-center px-4 py-4 sm:py-8 relative"
     >
 
+      {/* Mobile Slokas - Above Buddha */}
+      <motion.div 
+        initial={{ opacity: 0, y: -30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 1.2 }}
+        className="lg:hidden flex flex-col items-center justify-center text-center px-4 mb-4 sm:mb-6 z-20 absolute top-8 sm:top-12 md:top-16 left-1/2 transform -translate-x-1/2"
+      >
+        {/* Centered ॐ */}
+        <div className="text-orange-600 text-lg sm:text-xl mb-3 transition-all duration-300 cursor-default">
+          ॐ
+        </div>
+        {/* First Sloka */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 1.4 }}
+          className="text-base sm:text-lg font-semibold text-orange-900 leading-relaxed hindi-shimmer cursor-default"
+          whileHover={{ scale: 1.05, color: "#c2410c" }}
+        >
+          संस्कृति, संस्कार एवं शौर्य का संगम
+        </motion.p>
+      </motion.div>
+
       {/* Side Texts - Desktop */}
       <motion.div 
         initial={{ opacity: 0 }}
@@ -74,7 +97,7 @@ export default function Hero() {
         <motion.div 
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.3 }}
-          className="w-70 h-90  xl:w-80 xl:h-96 relative"
+          className="w-48 h-56 sm:w-56 sm:h-64 md:w-64 md:h-72 lg:w-70 lg:h-90 xl:w-80 xl:h-96 relative"
         >
           <Image
             src="/buddha.png"
@@ -86,21 +109,40 @@ export default function Hero() {
         </motion.div>
       </motion.div>
 
+      {/* Mobile Slokas - Below Buddha */}
+      <motion.div 
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 1.6 }}
+        className="lg:hidden flex flex-col items-center justify-center text-center px-4 mt-2 sm:mt-4 z-10 space-y-2"
+      >
+        {/* Remaining Slokas */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 1.8 }}
+          className="text-base sm:text-lg font-semibold text-orange-900 leading-relaxed hindi-shimmer cursor-default"
+          whileHover={{ scale: 1.05, color: "#c2410c" }}
+        >
+          अस्तो मा सद्गमय। <br/> तमसो मा ज्योतिर्गमय।<br/>मृत्योर्मा अमृतगमय।
+        </motion.p>
+      </motion.div>
+
       {/* Bottom Text Section */}
       <motion.div 
         initial={{ y: 50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, delay: 1.4 }}
-        className="text-center z-10"
+        transition={{ duration: 0.8, delay: 2.2 }}
+        className="text-center z-10 mt-4 sm:mt-6 px-2"
       >
-        <h1 className="text-lg sm:text-2xl md:text-3xl lg:text-4xl xl:text-4xl font-black text-orange-900 drop-shadow-2xl tracking-wider">
+        <h1 className="text-base sm:text-lg md:text-2xl lg:text-3xl xl:text-4xl font-black text-orange-900 drop-shadow-2xl tracking-wider">
           पूर्वांचल मैत्री समाज ट्रस्ट, गांधीनगर में आपका स्वागत है।
         </h1>
         <motion.p 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1.8 }}
-          className="text-sm sm:text-base md:text-lg lg:text-xl font-bold text-gray-700 drop-shadow-lg"
+          transition={{ duration: 0.8, delay: 2.4 }}
+          className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl font-bold text-gray-700 drop-shadow-lg mt-2"
         >
           Welcome to Purvanchal Maitree Samaj Trust, Gandhinagar (PMST)
         </motion.p>
