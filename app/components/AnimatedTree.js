@@ -7,8 +7,8 @@ export default function AnimatedTree() {
   const { scrollY } = useScroll();
   
   // Transform values based on scroll position
-  // Opacity animation: starts at 0, goes to 0.8, then stays at 1
-  const opacity = useTransform(scrollY, [0, 1000, 2000], [0, 0.8, 1]);
+  // Opacity animation: starts at 0, becomes visible from second part onwards
+  const opacity = useTransform(scrollY, [0, 800, 1000, 1200], [0, 0, 0.3, 0.5]);
   
   // Scale animation remains the same for a subtle zoom effect
   const scale = useTransform(scrollY, [0, 1500, 3000], [1, 1.1, 1.2]);

@@ -18,23 +18,23 @@ export default function Home() {
       </section>
       
       {/* About Section (History) */}
-      <section id="about" className="relative z-20 min-h-screen bg-white/5 backdrop-blur-sm pt-20">
+      <section id="about" className="relative z-20 min-h-screen pt-20">
         <ShortHistory />
       </section>
 
 
       {/* Mission & Vision Section */}
-      <section id="mission" className="relative z-20 min-h-screen bg-white/3 backdrop-blur-sm pt-20">
+      <section id="mission" className="relative z-20 min-h-screen pt-20">
         <Members />
       </section>
       
       {/* Mission & Vision Section */}
-      <section id="mission" className="relative z-20 min-h-screen bg-white/3 backdrop-blur-sm pt-20">
+      <section id="mission" className="relative z-20 min-h-screen pt-20">
         <MissionVision />
       </section>
       
       {/* Activities Section */}
-      <section id="activities" className="relative z-20 min-h-screen bg-white/5 backdrop-blur-sm pt-20 pb-20">
+      <section id="activities" className="relative z-20 min-h-screen pt-20 pb-20">
         <Activities />
       </section>
     </div>

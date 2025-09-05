@@ -8,8 +8,8 @@ export default function AnimatedMandala() {
   
   // Transform values based on scroll position
   const y = useTransform(scrollY, [0, 1000, 2000, 3000], [0, 300, 350, 400]);
-  // Opacity that fades to half and stays there (not disappearing completely)
-  const opacity = useTransform(scrollY, [0, 300], [0.6, 0.3]);
+  // Opacity that fades to 0 from second part onwards
+  const opacity = useTransform(scrollY, [0, 300, 800], [0.6, 0.3, 0]);
   const scale = useTransform(scrollY, [0, 1500, 3000], [1, 1.1, 1.2]);
 
   return (
