@@ -6,52 +6,12 @@ import { Phone, User } from 'lucide-react';
 export default function Members() {
   const members = [
     {
-      name: "राजेश कुमार",
-      nameEnglish: "Rajesh Kumar",
+      name: "प्रवीन कुमार श्रीवास्तव",
+      nameEnglish: "Pravin Kumar Shrivastava",
+      position: "President",
+      positionHindi: "अध्यक्ष",
       mobile: "+91 98765 43210",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face"
-    },
-    {
-      name: "प्रिया शर्मा",
-      nameEnglish: "Priya Sharma",
-      mobile: "+91 87654 32109",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=300&h=300&fit=crop&crop=face"
-    },
-    {
-      name: "अमित पटेल",
-      nameEnglish: "Amit Patel",
-      mobile: "+91 76543 21098",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face"
-    },
-    {
-      name: "सुनीता देवी",
-      nameEnglish: "Sunita Devi",
-      mobile: "+91 65432 10987",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop&crop=face"
-    },
-    {
-      name: "विकास अग्रवाल",
-      nameEnglish: "Vikas Agarwal",
-      mobile: "+91 54321 09876",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&h=300&fit=crop&crop=face"
-    },
-    {
-      name: "मीरा गुप्ता",
-      nameEnglish: "Meera Gupta",
-      mobile: "+91 43210 98765",
-      image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=300&h=300&fit=crop&crop=face"
-    },
-    {
-      name: "संजय सिंह",
-      nameEnglish: "Sanjay Singh",
-      mobile: "+91 32109 87654",
-      image: "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?w=300&h=300&fit=crop&crop=face"
-    },
-    {
-      name: "अनीता मिश्रा",
-      nameEnglish: "Anita Mishra",
-      mobile: "+91 21098 76543",
-      image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=300&h=300&fit=crop&crop=face"
+      image: "/members/Pravin Kumar Shrivastava.jpeg"
     }
   ];
 
@@ -92,7 +52,7 @@ export default function Members() {
         </motion.div>
 
         {/* Members Grid - 4 columns, responsive */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-7xl mx-auto">
+        <div className="flex flex-wrap justify-center gap-6 max-w-7xl mx-auto">
           {members.map((member, index) => (
             <motion.div
               key={index}
@@ -104,13 +64,28 @@ export default function Members() {
                 scale: 1.05,
                 boxShadow: "0 25px 50px rgba(0,0,0,0.15)"
               }}
-              className="relative group"
+              className="relative group w-full max-w-xs"
             >
               <div className="bg-white/90 backdrop-blur-sm border border-orange-200/50 rounded-3xl p-6 h-full hover:bg-white/95 transition-all duration-300 overflow-hidden shadow-lg">
                 {/* Background Pattern */}
                 <div className="absolute top-0 right-0 w-20 h-20 opacity-5">
                   <div className="w-full h-full bg-gradient-to-br from-orange-500 to-orange-600 rounded-full blur-xl"></div>
                 </div>
+
+                {/* Position Badge */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 + 0.3 }}
+                  className="absolute top-4 right-4 z-20"
+                >
+                  <div className="bg-gradient-to-r from-gray-800 to-gray-900 text-orange-200 px-3 py-1.5 rounded-full shadow-lg">
+                    <div className="text-xs font-bold text-center">
+                      <div className="text-orange-200">{member.positionHindi}</div>
+                      <div className="text-orange-300 text-[10px] font-medium">{member.position}</div>
+                    </div>
+                  </div>
+                </motion.div>
 
                 {/* Member Image */}
                 <motion.div
