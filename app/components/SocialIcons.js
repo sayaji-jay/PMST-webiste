@@ -3,7 +3,7 @@
 import { useState } from 'react';
 
 export default function SocialIcons() {
-  const [isHovered, setIsHovered] = useState({ instagram: false, linkedin: false });
+  const [isHovered, setIsHovered] = useState({ instagram: false, linkedin: false, twitter: false });
 
   return (
     <div className="fixed right-2 md:right-4 top-1/2 transform -translate-y-1/2 z-50 flex flex-col gap-4 md:gap-6">
@@ -76,6 +76,42 @@ export default function SocialIcons() {
           pointer-events-none
         `}>
           Connect on LinkedIn
+          <div className="absolute left-full top-1/2 transform -translate-y-1/2 w-0 h-0 border-l-4 border-l-gray-900 border-t-4 border-t-transparent border-b-4 border-b-transparent"></div>
+        </div>
+      </a>
+
+      {/* Twitter/X Icon */}
+      <a
+        href="https://x.com/pmstgnr" 
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group relative"
+        onMouseEnter={() => setIsHovered(prev => ({ ...prev, twitter: true }))}
+        onMouseLeave={() => setIsHovered(prev => ({ ...prev, twitter: false }))}
+      >
+        <div className={`
+          w-10 h-10 md:w-12 md:h-12 bg-black rounded-full flex items-center justify-center shadow-lg 
+          transition-all duration-300 transform hover:scale-110 hover:shadow-xl
+          ${isHovered.twitter ? 'animate-pulse' : ''}
+        `}>
+          <svg
+            className="w-5 h-5 md:w-6 md:h-6 text-white"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+        </div>
+        
+        {/* Tooltip */}
+        <div className={`
+          absolute right-14 top-1/2 transform -translate-y-1/2 
+          bg-gray-900 text-white px-3 py-2 rounded-lg text-sm whitespace-nowrap
+          opacity-0 group-hover:opacity-100 transition-opacity duration-300
+          pointer-events-none
+        `}>
+          Follow us on X
           <div className="absolute left-full top-1/2 transform -translate-y-1/2 w-0 h-0 border-l-4 border-l-gray-900 border-t-4 border-t-transparent border-b-4 border-b-transparent"></div>
         </div>
       </a>
