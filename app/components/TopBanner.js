@@ -1,8 +1,9 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Calendar, MapPin } from 'lucide-react';
+import { Calendar } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import { get_banner } from '../actions/banner';
 
 export default function TopBanner() {
   const [bannerData, setBannerData] = useState(null);
@@ -11,9 +12,17 @@ export default function TopBanner() {
   useEffect(() => {
     const fetchBannerData = async () => {
       try {
-        const response = await fetch('/api/banner');
-        const data = await response.json();
-        setBannerData(data);
+        const result = await get_banner();
+        if (result.success) {
+          console.log('Banner data retrieved:', result.data);
+          setBannerData(result.data);
+          if (result.warning) {
+            console.warn('Banner warning:', result.warning);
+          }
+        } else {
+          console.error('Failed to fetch banner data:', result.error);
+          setBannerData({ isVisible: false, text: "" });
+        }
       } catch (error) {
         console.error('Failed to fetch banner data:', error);
         setBannerData({ isVisible: false, text: "" });
@@ -36,7 +45,8 @@ export default function TopBanner() {
   }, [loading, bannerData]);
 
   // Don't render anything while loading or if banner should not be visible
-  if (loading || !bannerData?.isVisible || !bannerData?.text) {
+  // Only show banner if it's visible AND has text content
+  if (loading || !bannerData?.isVisible || !bannerData?.text?.trim()) {
     return null;
   }
 
