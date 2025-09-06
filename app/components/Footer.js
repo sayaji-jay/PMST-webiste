@@ -10,39 +10,50 @@ export default function Footer() {
   return (
     <>
       {/* Footer - Only visible on desktop/web view */}
-      <footer className="hidden md:block bg-gradient-to-r from-orange-800 to-orange-900 text-white py-6 relative z-20">
+      <footer className="hidden md:block bg-gradient-to-r from-orange-800 to-orange-900 text-white py-6 relative z-20 opacity-90">
         <div className="container mx-auto px-4">
-          <div className="flex justify-between items-center">
+          <div className="flex justify-between items-center flex-wrap gap-4">
             {/* Left side - Copyright */}
-            <div className="flex items-center space-x-4">
-              <p className="text-sm opacity-80">
-                © 2024 पूर्वांचल मैत्री समाज ट्रस्ट, गांधीनगर | All Rights Reserved
-              </p>
+            <div className="text-sm opacity-80">
+              © 2024 पूर्वांचल मैत्री समाज ट्रस्ट, गांधीनगर | All Rights Reserved
             </div>
-            
-            {/* Right side - Admin Link */}
-            <div>
-              <motion.button
+
+            {/* Center - Links */}
+            <div className="flex items-center gap-6 text-sm">
+              <button
                 onClick={() => setShowBannerBoard(true)}
-                whileHover={{ scale: 1.05, backgroundColor: "rgba(255, 255, 255, 0.1)" }}
-                whileTap={{ scale: 0.95 }}
-                className="text-sm px-4 py-2 rounded-lg border border-orange-300/30 hover:border-orange-300/60 transition-all duration-300 bg-white/10 backdrop-blur-sm"
+                className="hover:underline transition-all"
               >
-                <span className="flex items-center gap-2">
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4" />
-                  </svg>
-                  Admin
-                </span>
-              </motion.button>
+                Admin
+              </button>
+              <a href="/privacy" className="hover:underline transition-all">
+                Privacy
+              </a>
+              <a href="/contact" className="hover:underline transition-all">
+                Contact
+              </a>
             </div>
+
+            {/* Right side - Made with Love */}
+            <div className="text-sm flex items-center gap-1 opacity-80">
+              Made with <span className="text-red-400">❤️</span> by
+              <a 
+                href="https://www.sayajiinfotech.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="font-semibold hover:underline transition-all"
+              >
+                Sayaji Infotech
+              </a>
+            </div>
+
           </div>
         </div>
       </footer>
 
       {/* Banner Board Dialog */}
       {showBannerBoard && (
-        <BannerBoard 
+        <BannerBoard
           isOpen={showBannerBoard}
           onClose={() => setShowBannerBoard(false)}
         />

@@ -13,13 +13,16 @@ export default function BannerBoard({ isOpen, onClose }) {
   });
   const [loading, setLoading] = useState(false);
   const [loadingData, setLoadingData] = useState(true);
+  const [pinAuthenticated, setPinAuthenticated] = useState(false);
+  const [pin, setPin] = useState('');
+  const [pinError, setPinError] = useState('');
 
-  // Load current banner data when component opens
+  // Load current banner data when component opens and PIN is authenticated
   useEffect(() => {
-    if (isOpen) {
+    if (isOpen && pinAuthenticated) {
       loadCurrentData();
     }
-  }, [isOpen]);
+  }, [isOpen, pinAuthenticated]);
 
   const loadCurrentData = async () => {
     try {
@@ -68,6 +71,22 @@ export default function BannerBoard({ isOpen, onClose }) {
     }));
   };
 
+  const handlePinSubmit = (e) => {
+    e.preventDefault();
+    if (pin === '2525') {
+      setPinAuthenticated(true);
+      setPinError('');
+    } else {
+      setPinError('Invalid PIN! Please try again.');
+      setPin('');
+    }
+  };
+
+  const handlePinChange = (e) => {
+    setPin(e.target.value);
+    setPinError('');
+  };
+
   if (!isOpen) return null;
 
   return (
@@ -105,8 +124,48 @@ export default function BannerBoard({ isOpen, onClose }) {
             </div>
           </div>
 
-          {/* Loading State */}
-          {loadingData ? (
+          {/* PIN Authentication */}
+          {!pinAuthenticated ? (
+            <form onSubmit={handlePinSubmit} className="p-6 space-y-6">
+              <div className="text-center">
+                <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <svg className="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-gray-800 mb-2">Enter Admin PIN</h3>
+                <p className="text-gray-600 text-sm mb-6">Please enter the 4-digit PIN to access Banner Board</p>
+              </div>
+
+              <div>
+                <input
+                  type="password"
+                  value={pin}
+                  onChange={handlePinChange}
+                  placeholder="Enter 4-digit PIN"
+                  maxLength={4}
+                  className="w-full px-4 py-3 border border-gray-400 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all bg-gray-50 text-gray-900 font-medium text-center text-2xl tracking-wider"
+                />
+                {pinError && (
+                  <motion.p
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="text-red-500 text-sm mt-2 text-center"
+                  >
+                    {pinError}
+                  </motion.p>
+                )}
+              </div>
+
+              <button
+                type="submit"
+                disabled={pin.length !== 4}
+                className="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white font-bold py-3 px-6 rounded-xl hover:shadow-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                Unlock Banner Board
+              </button>
+            </form>
+          ) : loadingData ? (
             <div className="p-8 text-center">
               <div className="animate-spin w-8 h-8 border-4 border-orange-500 border-t-transparent rounded-full mx-auto mb-4"></div>
               <p className="text-gray-600">Loading current data...</p>

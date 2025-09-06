@@ -76,12 +76,14 @@ export default function TopBanner() {
             
             {/* Banner content - clickable if link exists */}
             {bannerData.link ? (
-              <motion.a
-                href={bannerData.link}
-                target="_blank"
-                rel="noopener noreferrer"
+              <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  window.open(bannerData.link, '_blank', 'noopener,noreferrer');
+                }}
                 className="group flex items-center gap-2 font-bold text-xs md:text-sm bg-white/20 hover:bg-white/30 px-2 py-1 rounded-full transition-all duration-300 cursor-pointer"
               >
                 <span>{bannerData.text}</span>
@@ -92,7 +94,7 @@ export default function TopBanner() {
                 >
                   <ExternalLink size={12} className="text-orange-100 group-hover:text-white" />
                 </motion.div>
-              </motion.a>
+              </motion.div>
             ) : (
               <span className="font-bold text-xs md:text-sm bg-white/20 px-2 py-1 rounded-full">
                 {bannerData.text}
