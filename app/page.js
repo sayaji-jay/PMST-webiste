@@ -6,6 +6,7 @@ import ShortHistory from "./components/ShortHistory";
 import Activities from "./components/Activities";
 import AnimatedMandala from "./components/AnimatedMandala";
 import AnimatedTree from "./components/AnimatedTree";
+import AnimatedDiya from "./components/AnimatedDiya";
 import Members from "./components/Members";
 import { useBannerVisibility } from "./hooks/useBannerVisibility";
 export default function Home() {
@@ -16,6 +17,7 @@ export default function Home() {
       {/* Animated Mandala Background */}
       <AnimatedMandala />
       <AnimatedTree />
+      <AnimatedDiya />
       
       {/* Hero Section */}
       <section 

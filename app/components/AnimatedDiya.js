@@ -7,11 +7,12 @@ export default function AnimatedTree() {
   const { scrollY } = useScroll();
   
   // Transform values based on scroll position
-  // Tree is visible during Short History section but hides when diya appears in Members section
-  const opacity = useTransform(scrollY, [0, 800, 1000, 1800, 2000, 2200], [0, 0, 0.3, 0.5, 0.2, 0]);
+  // Diya appears during Members section (around 2000-3000px scroll)
+  // Hide during Short History section (800-1800px) and show in Members section
+  const opacity = useTransform(scrollY, [0, 800, 1800, 2000, 2800, 3200], [0, 0, 0, 0.3, 0.6, 0.4]);
   
-  // Scale animation for tree
-  const scale = useTransform(scrollY, [0, 1500, 1800], [1, 1.1, 1.2]);
+  // Scale animation for diya
+  const scale = useTransform(scrollY, [1800, 2200, 2800], [0.8, 1.1, 1.3]);
 
   return (
     <>
@@ -25,7 +26,7 @@ export default function AnimatedTree() {
       >
         <div className="w-[300px] h-[300px] sm:w-[450px] sm:h-[450px] md:w-[550px] md:h-[550px] relative">
           <Image
-            src="/Tree.png"
+            src="/diya.png"
             alt="Animated Mandala"
             fill
             className="object-contain"
