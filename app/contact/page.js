@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useState } from 'react';
-import { Facebook,Instagram,PhoneCall,MapPin,Mail } from 'lucide-react';
+import { Linkedin,Instagram,PhoneCall,MapPin,Mail } from 'lucide-react';
 export default function Contact() {
   const [formData, setFormData] = useState({
     mobile: '',
@@ -33,9 +33,9 @@ export default function Contact() {
       url: 'https://instagram.com/pmstgnr/',
     },
     {
-      name: 'WhatsApp',
-      icon: PhoneCall,
-      url: 'https://wa.me/+919724500254',
+      name: 'Linkedin',
+      icon: Linkedin,
+      url: 'https://linkedin.com/pmstgnr/',
     }
   ];
 
