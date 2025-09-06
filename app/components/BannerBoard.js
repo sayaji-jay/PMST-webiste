@@ -73,7 +73,8 @@ export default function BannerBoard({ isOpen, onClose }) {
 
   const handlePinSubmit = (e) => {
     e.preventDefault();
-    if (pin === '2525') {
+    const correctPin = process.env.NEXT_PUBLIC_BANNERPIN || '2525';
+    if (pin === correctPin) {
       setPinAuthenticated(true);
       setPinError('');
     } else {
@@ -134,7 +135,7 @@ export default function BannerBoard({ isOpen, onClose }) {
                   </svg>
                 </div>
                 <h3 className="text-xl font-bold text-gray-800 mb-2">Enter Admin PIN</h3>
-                <p className="text-gray-600 text-sm mb-6">Please enter the 4-digit PIN to access Banner Board</p>
+                <p className="text-gray-600 text-sm mb-6">Please enter PIN to access Banner Board</p>
               </div>
 
               <div>
@@ -142,9 +143,8 @@ export default function BannerBoard({ isOpen, onClose }) {
                   type="password"
                   value={pin}
                   onChange={handlePinChange}
-                  placeholder="Enter 4-digit PIN"
-                  maxLength={4}
-                  className="w-full px-4 py-3 border border-gray-400 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all bg-gray-50 text-gray-900 font-medium text-center text-2xl tracking-wider"
+                  placeholder="Enter PIN"
+                  className="w-full px-4 py-3 border border-gray-400 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all bg-gray-50 text-gray-900 font-medium text-center text-xl tracking-wider"
                 />
                 {pinError && (
                   <motion.p
@@ -159,7 +159,7 @@ export default function BannerBoard({ isOpen, onClose }) {
 
               <button
                 type="submit"
-                disabled={pin.length !== 4}
+                disabled={!pin.trim()}
                 className="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white font-bold py-3 px-6 rounded-xl hover:shadow-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 Unlock Banner Board
