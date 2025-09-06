@@ -97,3 +97,42 @@ export async function create_banner(bannerData = null) {
     };
   }
 }
+
+// Update existing banner data in JSONBin API
+export async function update_banner(bannerData) {
+  try {
+    const BIN_ID = "68bbdb3eae596e708fe46865";
+    const API_KEY = "$2a$10$w4ASrd7NAxb6l6I8ZNoChuc49LQOV9AzfdZ9wIUzilsdzjZVKbkCC";
+    
+    console.log('Updating banner data in existing bin...', bannerData);
+    
+    const updateResponse = await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Master-Key": API_KEY
+      },
+      body: JSON.stringify(bannerData)
+    });
+    
+    if (!updateResponse.ok) {
+      throw new Error(`JSONBin API error: ${updateResponse.status} ${updateResponse.statusText}`);
+    }
+    
+    const updateResult = await updateResponse.json();
+    console.log('Banner data updated successfully:', updateResult);
+    
+    return {
+      success: true,
+      data: updateResult,
+      message: 'Banner updated successfully'
+    };
+  } catch (error) {
+    console.error('Banner update error:', error);
+    return {
+      success: false,
+      error: error.message,
+      message: 'Failed to update banner'
+    };
+  }
+}

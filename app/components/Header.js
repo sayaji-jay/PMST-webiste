@@ -64,7 +64,7 @@ export default function Header() {
       transition={{ duration: 0.8, ease: "easeOut" }}
       className={`fixed left-0 right-0 z-50 bg-white/10 backdrop-blur-md border-b border-white/20 ${
         bannerVisible 
-          ? 'top-[65px] md:top-[60px]' 
+          ? 'top-[44px] md:top-[40px]' 
           : 'top-0'
       }`}
     >

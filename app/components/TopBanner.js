@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Calendar } from 'lucide-react';
+import { Calendar, ExternalLink } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { get_banner } from '../actions/banner';
 
@@ -55,7 +55,7 @@ export default function TopBanner() {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className="fixed top-0 left-0 right-0 z-[60] bg-gradient-to-r from-orange-600 to-orange-500 text-white py-3 px-4 shadow-lg"
+      className="fixed top-0 left-0 right-0 z-[60] bg-gradient-to-r from-orange-600 to-orange-500 text-white py-2 px-4 shadow-lg"
     >
       <div className="container mx-auto flex items-center justify-center">
         {/* Main Content */}
@@ -71,11 +71,33 @@ export default function TopBanner() {
               animate={{ rotate: [0, 10, -10, 0] }}
               transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
             >
-              <Calendar size={18} className="text-orange-100" />
+              <Calendar size={16} className="text-orange-100" />
             </motion.div>
-            <span className="font-bold text-sm md:text-lg bg-white/20 px-3 py-1 rounded-full">
-              {bannerData.text}
-            </span>
+            
+            {/* Banner content - clickable if link exists */}
+            {bannerData.link ? (
+              <motion.a
+                href={bannerData.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="group flex items-center gap-2 font-bold text-xs md:text-sm bg-white/20 hover:bg-white/30 px-2 py-1 rounded-full transition-all duration-300 cursor-pointer"
+              >
+                <span>{bannerData.text}</span>
+                <motion.div
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.2 }}
+                >
+                  <ExternalLink size={12} className="text-orange-100 group-hover:text-white" />
+                </motion.div>
+              </motion.a>
+            ) : (
+              <span className="font-bold text-xs md:text-sm bg-white/20 px-2 py-1 rounded-full">
+                {bannerData.text}
+              </span>
+            )}
           </div>
         </motion.div>
       </div>
