@@ -142,7 +142,7 @@ export default function ShortHistory() {
                         initial={{ opacity: 0, scale: 0.8 }}
                         whileInView={{ opacity: 0.8, scale: 1 }}
                         transition={{ duration: 0.6, delay: 0.3 }}
-                        className="absolute right-2 top-1/2 transform -translate-y-1/2 text-2xl md:text-3xl font-black text-orange-900 whitespace-nowrap pointer-events-none"
+                        className="absolute right-2 top-1/2 transform -translate-y-1/2 text-xl sm:text-base md:text-xl lg:text-2xl xl:text-3xl font-black text-orange-900 whitespace-nowrap pointer-events-none"
                       >
                         {item.date}
                       </motion.div>

@@ -19,10 +19,6 @@ export default function Hero() {
         transition={{ duration: 0.8, delay: 1.2 }}
         className="lg:hidden flex flex-col items-center justify-center text-center px-4 mb-4 sm:mb-6 z-20 absolute top-8 sm:top-12 md:top-16 left-1/2 transform -translate-x-1/2"
       >
-        {/* Centered ॐ */}
-        <div className="text-orange-600 text-lg sm:text-xl mb-3 transition-all duration-300 cursor-default">
-          ॐ
-        </div>
         {/* First Sloka */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -61,10 +57,6 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 1.2 }}
           className="w-1/3 flex flex-col items-center justify-center text-center px-4 break-words"
         >
-          {/* Centered ॐ */}
-          <div className="text-orange-600 text-lg md:text-xl lg:text-2xl xl:text-3xl mb-2 transition-all duration-300 cursor-default">
-            ॐ
-          </div>
           {/* Slokas with Same Font */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -72,7 +64,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 1.5 }}
             className="text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold text-orange-900 leading-relaxed space-y-2 hindi-shimmer cursor-default text-center"
           >
-            {["अस्तो मा सद्गमय।", "तमसो मा ज्योतिर्गमय।", "मृत्योर्मा अमृतगमय।"].map((sloka, index) => (
+            {["ॐ","अस्तो मा सद्गमय।", "तमसो मा ज्योतिर्गमय।", "मृत्योर्मा अमृतगमय।"].map((sloka, index) => (
               <motion.p
                 key={index}
                 initial={{ opacity: 0, x: 20 }}
@@ -124,7 +116,7 @@ export default function Hero() {
           className="text-base sm:text-lg font-semibold text-orange-900 leading-relaxed hindi-shimmer cursor-default"
           whileHover={{ scale: 1.05, color: "#c2410c" }}
         >
-          अस्तो मा सद्गमय। <br/> तमसो मा ज्योतिर्गमय।<br/>मृत्योर्मा अमृतगमय।
+          ॐ <br/>  अस्तो मा सद्गमय। <br/> तमसो मा ज्योतिर्गमय।<br/>मृत्योर्मा अमृतगमय।
         </motion.p>
       </motion.div>
 
