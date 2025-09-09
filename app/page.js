@@ -9,6 +9,7 @@ import AnimatedTree from "./components/AnimatedTree";
 import AnimatedDiya from "./components/AnimatedDiya";
 import Members from "./components/Members";
 import { useBannerVisibility } from "./hooks/useBannerVisibility";
+import InstagramFeed from "./components/InstagramFeed";
 export default function Home() {
   const bannerVisible = useBannerVisibility();
   
