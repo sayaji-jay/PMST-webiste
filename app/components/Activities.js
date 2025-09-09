@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { GraduationCap,PartyPopper,HandHeart ,HandFist, Rocket} from 'lucide-react';
+import InstagramFeed from './InstagramFeed';
 
 
 export default function Activities() {
@@ -74,114 +75,8 @@ export default function Activities() {
           </motion.p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
-          
-          {(activities.length === 0) ? (
-            <motion.div
-              initial={{ opacity: 0, y: 50, scale: 0.9 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="col-span-full flex justify-center"
-            >
-              <div className="bg-white/10 backdrop-blur-sm border border-orange-200/30 rounded-3xl p-8 max-w-md hover:bg-white/20 transition-all duration-300 text-center">
-                <motion.div
-                  initial={{ scale: 0.8 }}
-                  whileInView={{ scale: 1 }}
-                  transition={{ duration: 0.5 }}
-                  className="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-lg mx-auto"
-                >
-                  <Rocket size={32} className="text-white" />
-                </motion.div>
-                <motion.h4 
-                  className="text-xl font-bold text-orange-900 mb-2"
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  transition={{ delay: 0.2 }}
-                >
-                  जल्द ही आ रहा है
-                </motion.h4>
-                <motion.h5 
-                  className="text-lg font-semibold text-orange-700 mb-4"
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  transition={{ delay: 0.3 }}
-                >
-                  Coming Soon
-                </motion.h5>
-                <motion.p 
-                  className="text-gray-700 leading-relaxed text-sm"
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  transition={{ delay: 0.4 }}
-                >
-                  हमारी रोमांचक गतिविधियाँ और कार्यक्रम जल्द ही यहाँ उपलब्ध होंगे। कृपया बाद में पुनः विजिट करें।
-                </motion.p>
-              </div>
-            </motion.div>
-          ) :    
-          activities.map((activity, index) => {
-            const Icon = activity.icon;
-            return (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 50, scale: 0.9 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              whileHover={{ 
-                y: -10, 
-                scale: 1.05,
-                boxShadow: "0 25px 50px rgba(0,0,0,0.15)"
-              }}
-              className="relative group"
-            >
-              <div className="bg-white/10 backdrop-blur-sm border border-orange-200/30 rounded-3xl p-6 h-full hover:bg-white/20 transition-all duration-300 overflow-hidden">
-                {/* Background Pattern */}
-                <div className="absolute top-0 right-0 w-24 h-24 opacity-10">
-                  <div className={`w-full h-full bg-gradient-to-br ${activity.color} rounded-full blur-xl`}></div>
-                </div>
-
-                {/* Icon */}
-                <motion.div
-                  whileHover={{ scale: 1.2, rotate: 360 }}
-                  transition={{ duration: 0.5 }}
-                  className={`w-16 h-16 bg-gradient-to-br ${activity.color} rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-lg relative z-10`}
-                >
-                  <Icon size={32} className="text-white" />
-                </motion.div>
-
-                {/* Content */}
-                <div className="relative z-10">
-                  <motion.h4 
-                    className="text-xl font-bold text-orange-900 mb-2"
-                    whileHover={{ scale: 1.05 }}
-                  >
-                    {activity.titleHindi}
-                  </motion.h4>
-                  <motion.h5 
-                    className="text-lg font-semibold text-orange-700 mb-4"
-                    whileHover={{ scale: 1.05 }}
-                  >
-                    {activity.title}
-                  </motion.h5>
-                  <motion.p 
-                    className="text-gray-700 leading-relaxed text-sm"
-                    initial={{ opacity: 0.8 }}
-                    whileHover={{ opacity: 1 }}
-                  >
-                    {activity.description}
-                  </motion.p>
-                </div>
-
-                {/* Hover Effect */}
-                <motion.div
-                  className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${activity.color} transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500`}
-                ></motion.div>
-              </div>
-            </motion.div>
-            )})
-          }
+       <InstagramFeed/>
       
-        </div>
 
         {/* Call to Action */}
         <motion.div
