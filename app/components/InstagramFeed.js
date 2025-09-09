@@ -7,7 +7,7 @@ import { X } from 'lucide-react';
 
 const InstagramFeed = () => {
 
-  const accessToken = "IGAAOup3wbUXFBZAE1reW9NelUtaTFZAVWtzVTZA2aVRYLS1IeEFGeVNFV29nX2dFbDQzclY3NTZAuOU1OdFlEYm1pN1UtZAW1lLTlRbklCVHphdUN0X2M3UWd1NzFTTW1MbzJILUZAKYmhFdjR3ZAnNYMGZAZAVHppemd6M0RrcXBXdG84TQZDZD";
+  const accessToken = "";
   const limit = 12
   const [selected, setSelected] = useState(null);
   const [instagramPosts, setInstagramPosts] = useState([]);
@@ -46,41 +46,74 @@ const InstagramFeed = () => {
     fetchInstagramPosts();
   }, [accessToken, limit]);
 
-  // Modal component
+  // Enhanced Modal component
   const ImageModal = ({ item }) => {
     const isVideo = item.media_type === 'VIDEO';
     return (
       <div
         onClick={() => setSelected(null)}
-        className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4"
+        className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4"
       >
         <div
-          className="relative max-w-md w-full bg-white rounded-lg overflow-hidden"
+          className="relative max-w-lg w-full bg-white rounded-xl overflow-hidden shadow-2xl"
           onClick={(e) => e.stopPropagation()}
         >
           <button
             onClick={() => setSelected(null)}
-            className="absolute top-2 right-2 text-gray-600 hover:text-gray-800 z-10"
+            className="absolute top-3 right-3 bg-white/90 hover:bg-white text-gray-600 hover:text-gray-800 rounded-full p-1 z-10 transition-all"
           >
-            <X size={20} />
+            <X size={18} />
           </button>
 
-          {isVideo ? (
-            <video src={item.url} poster={item.thumbnail_url} className="w-full max-h-[500px] object-cover" controls muted />
-          ) : (
-            <img src={item.url} alt={item.title} className="w-full max-h-[500px] object-cover" />
-          )}
+          {/* Media content */}
+          <div className="relative">
+            {isVideo ? (
+              <video 
+                src={item.url} 
+                poster={item.thumbnail_url} 
+                className="w-full max-h-[400px] object-cover" 
+                controls 
+                autoPlay 
+                muted 
+                loop
+              />
+            ) : (
+              <img 
+                src={item.url} 
+                alt={item.title} 
+                className="w-full max-h-[400px] object-cover" 
+              />
+            )}
+            
+            {/* Media type indicator */}
+            <div className="absolute top-3 left-3 bg-black/70 text-white px-2 py-1 rounded-md text-xs">
+              {isVideo ? '📹 VIDEO' : '📷 IMAGE'}
+            </div>
+          </div>
 
-          <div className="p-3">
-            <p className="text-sm text-gray-600 mb-2">{item.title}</p>
-            <a
-              href={item.permalink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded text-xs"
-            >
-              View on Instagram
-            </a>
+          {/* Content section */}
+          <div className="p-4 space-y-3">
+            <div>
+              <h3 className="font-semibold text-gray-800 text-sm mb-1">Caption</h3>
+              <p className="text-sm text-gray-600 leading-relaxed">{item.title}</p>
+            </div>
+            
+            <div className="flex items-center justify-between pt-2 border-t border-gray-100">
+              <span className="text-xs text-gray-500">
+                {isVideo ? 'Click to play video' : 'Instagram post'}
+              </span>
+              <a
+                href={item.permalink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white px-3 py-1.5 rounded-full text-xs font-medium transition-all transform hover:scale-105"
+              >
+                <span>View on Instagram</span>
+                <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M7 7h8.586L5.293 17.293l1.414 1.414L17 8.414V17h2V5H7v2z"/>
+                </svg>
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -92,25 +125,33 @@ const InstagramFeed = () => {
     const isVideo = item.media_type === 'VIDEO';
     return (
       <div
-        className="break-inside-avoid mb-4 cursor-pointer rounded-lg overflow-hidden shadow-md hover:shadow-lg"
+        className="break-inside-avoid mb-4 cursor-pointer rounded-lg overflow-hidden shadow-md hover:shadow-lg relative group transition-all duration-300"
         onClick={() => setSelected(item)}
+        title={item.title} // Add hover tooltip
       >
         {isVideo ? (
-          <>
+          <div className="relative">
             <video src={item.url} poster={item.thumbnail_url} className="w-full object-cover rounded-md" muted />
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="bg-black/60 rounded-full p-2">
+              <div className="bg-black/60 rounded-full p-2 group-hover:bg-black/80 transition-all">
                 <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M8 5v14l11-7z" />
                 </svg>
               </div>
             </div>
-          </>
+          </div>
         ) : (
-          <img src={item.url} alt={item.title} className="w-full object-cover rounded-md" loading="lazy" />
+          <img src={item.url} alt={item.title} className="w-full object-cover rounded-md group-hover:scale-105 transition-transform duration-300" loading="lazy" />
         )}
 
-        <div className="absolute top-2 right-2 bg-black/70 text-white px-2 py-1 rounded text-xs">
+        {/* Hover overlay with title */}
+        <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+          <div className="p-3 w-full">
+            <p className="text-white text-xs font-medium line-clamp-2">{item.title}</p>
+          </div>
+        </div>
+
+        <div className="absolute top-2 right-2 bg-black/70 text-white px-2 py-1 rounded text-xs group-hover:bg-black/90">
           {isVideo ? 'VIDEO' : 'IMAGE'}
         </div>
       </div>
