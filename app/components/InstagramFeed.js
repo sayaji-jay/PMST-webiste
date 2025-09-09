@@ -8,7 +8,7 @@ import { motion } from 'framer-motion';
 import { Rocket } from 'lucide-react';
 const InstagramFeed = () => {
 
-  const accessToken = process.env.NEXT_PUBLIC_INSTAGRAM_ACCESS_TOKEN;
+  const accessToken = process.env.INSTAGRAM_ACCESS_TOKEN;
   const limit = 12
   const [selected, setSelected] = useState(null);
   const [instagramPosts, setInstagramPosts] = useState([]);

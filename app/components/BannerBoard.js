@@ -73,7 +73,7 @@ export default function BannerBoard({ isOpen, onClose }) {
 
   const handlePinSubmit = (e) => {
     e.preventDefault();
-    const correctPin = process.env.NEXT_PUBLIC_BANNERPIN || 'PMSTAdminCanAccess';
+    const correctPin = process.env.BANNERPIN || 'PMSTAdminCanAccess';
     if (pin === correctPin) {
       setPinAuthenticated(true);
       setPinError('');
