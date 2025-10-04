@@ -115,7 +115,7 @@ export default function ShortHistory() {
 
                 {/* Timeline Items */}
                 {[
-                  { year: "स्थापना", title: "ट्रस्ट की नींव", desc: "समाज सेवा का आरंभ", date: "7 सितम्बर 2012" },
+                  { year: "स्थापना", title: "ट्रस्ट की नींव", desc: "समाज सेवा का आरंभ", date: "24 अक्टूबर 2014" },
                   { year: "विस्तार", title: "कार्यक्रमों का विकास", desc: "शिक्षा और स्वास्थ्य सेवाएं", date: "" },
                   { year: "वर्तमान", title: "निरंतर सेवा", desc: "समुदाय का कल्याण", date: "" },
                 ].map((item, index) => (

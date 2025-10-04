@@ -64,7 +64,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 1.5 }}
             className="text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold text-orange-900 leading-relaxed space-y-2 hindi-shimmer cursor-default text-center"
           >
-            {["ॐ","अस्तो मा सद्गमय।", "तमसो मा ज्योतिर्गमय।", "मृत्योर्मा अमृतगमय।"].map((sloka, index) => (
+            {["ॐ","असतो मा सद् गमय।", "तमसो मा ज्योतिर्गमय।", "मृत्योर्माऽमृतम् गमय ॥"].map((sloka, index) => (
               <motion.p
                 key={index}
                 initial={{ opacity: 0, x: 20 }}
@@ -116,29 +116,41 @@ export default function Hero() {
           className="text-base sm:text-lg font-semibold text-orange-900 leading-relaxed hindi-shimmer cursor-default"
           whileHover={{ scale: 1.05, color: "#c2410c" }}
         >
-          ॐ <br/>  अस्तो मा सद्गमय। <br/> तमसो मा ज्योतिर्गमय।<br/>मृत्योर्मा अमृतगमय।
+          ॐ <br/> असतो मा सद् गमय। <br/>
+          तमसो मा ज्योतिर्गमय। <br/>
+          मृत्योर्माऽमृतं गमय ॥
         </motion.p>
       </motion.div>
 
-      {/* Bottom Text Section */}
-      <motion.div 
-        initial={{ y: 50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, delay: 2.2 }}
-        className="text-center z-10 mt-4 sm:mt-6 px-2"
-      >
-        <h1 className="text-base sm:text-lg md:text-2xl lg:text-3xl xl:text-4xl font-black text-orange-900 drop-shadow-2xl tracking-wider">
-          पूर्वांचल मैत्री समाज ट्रस्ट, गांधीनगर में आपका स्वागत है।
-        </h1>
-        <motion.p 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 2.4 }}
-          className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-2xl font-bold text-gray-700 drop-shadow-lg mt-2"
-        >
-          Welcome to Purvanchal Maitree Samaj Trust, Gandhinagar (PMST)
-        </motion.p>
-      </motion.div>
+     {/* Bottom Text Section */}
+<motion.div 
+  initial={{ y: 50, opacity: 0 }}
+  animate={{ y: 0, opacity: 1 }}
+  transition={{ duration: 0.8, delay: 2.2 }}
+  className="text-center z-10 -mt-8 sm:-mt-6 px-2" // <- mt ko negative kiya
+>
+  <motion.p
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.8, delay: 2.4 }}
+      className="text-sm text-gray-400 mt-1"
+    >
+      Regd. No. A/833/Gandhinagar
+  </motion.p>
+
+  <h1 className="text-base sm:text-lg md:text-2xl lg:text-3xl xl:text-4xl font-black text-orange-900 drop-shadow-2xl tracking-wider">
+    पूर्वांचल मैत्री समाज ट्रस्ट, गांधीनगर में आपका स्वागत है।
+  </h1>
+  <motion.p 
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{ duration: 0.8, delay: 2.4 }}
+    className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-2xl font-bold text-gray-700 drop-shadow-lg mt-2"
+  >
+    Welcome to Purvanchal Maitree Samaj Trust, Gandhinagar (PMST)
+  </motion.p>
+</motion.div>
+
     </motion.div>
   );
 }
