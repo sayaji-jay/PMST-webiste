@@ -133,9 +133,9 @@ export default function Hero() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8, delay: 2.4 }}
-      className="text-sm text-gray-400 mt-1"
+      className="text-sm text-gray-600 mt-1"
     >
-      Regd. No. A/833/Gandhinagar
+      (Regd. No. A/833/Gandhinagar)
   </motion.p>
 
   <h1 className="text-base sm:text-lg md:text-2xl lg:text-3xl xl:text-4xl font-black text-orange-900 drop-shadow-2xl tracking-wider">

@@ -84,10 +84,15 @@ export default function Header() {
                 className="w-full h-full object-contain rounded-full" 
               />
             </div>
-            <span className="ml-3 text-orange-900 font-bold text-lg">
-              <span className="block md:hidden">PMST, Gandhinagar</span>
-              <span className="hidden md:block">Purvanchal Maitree Samaj Trust, Gandhinagar</span>
-            </span>
+            <div className="ml-3">
+              <span className="text-orange-900 font-bold text-lg">
+                <span className="block md:hidden">PMST, Gandhinagar</span>
+                <span className="hidden md:block">Purvanchal Maitree Samaj Trust, Gandhinagar</span>
+              </span>
+              <div className="text-sm text-gray-600 ">
+                (Regd. No. A/833/Gandhinagar)
+              </div>
+            </div>
           </motion.div>
           
           {/* Desktop Navigation */}
