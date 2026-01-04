@@ -46,7 +46,7 @@ export default function SocialIcons() {
 
       {/* LinkedIn Icon */}
       <a
-        href="https://www.linkedin.com/company/pmstgnr/" 
+        href="https://www.linkedin.com/in/purvanchal-maitri-samaj-trust-gandhinagar-6441313a3/" 
         target="_blank"
         rel="noopener noreferrer"
         className="group relative"

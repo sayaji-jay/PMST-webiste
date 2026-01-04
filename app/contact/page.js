@@ -35,7 +35,7 @@ export default function Contact() {
     {
       name: 'LinkedIn',
       icon: Linkedin,
-      url: 'https://www.linkedin.com/company/pmstgnr/',
+      url: 'https://www.linkedin.com/in/purvanchal-maitri-samaj-trust-gandhinagar-6441313a3/',
     },
     {
       name: 'X (Twitter)',
